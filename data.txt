@@ -1,6 +1,2 @@
-TestAcc
-123
-2000
-TestAcc2
-Password
-1000
+Test
+Password123

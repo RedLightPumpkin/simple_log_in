@@ -7,14 +7,12 @@ using namespace std;
 struct USER{
     string username;
     string password;
-    float balance;
 }user;
 
 void add_user(vector<USER>& users){
     ofstream data("data.txt", ios::app);
     string username;
     string password;
-    float balance = 1000.00;
     cin.ignore();
     cout << "Input your account's username: " << endl;
     getline(cin,username);
@@ -22,9 +20,8 @@ void add_user(vector<USER>& users){
     cout << "Input a secure password for your account " << endl;
     getline(cin,password);
     data << password << endl;
-    data << balance << endl;
 
-    users.push_back({username, password, balance});
+    users.push_back({username, password});
 
     data.close();
 }
@@ -56,14 +53,13 @@ void read_data(vector<USER>& users){
 
     ifstream data("data.txt");
     string uname, passwd;
-    float bal;
 
     if(!data.is_open()){
         cout << "Could not read data file!";
     }
 
-    while(getline(data,uname) && getline(data,passwd) && data >> bal){
-        users.push_back({uname, passwd, bal});
+    while(getline(data,uname) && getline(data,passwd)){
+        users.push_back({uname, passwd,});
         data.ignore();
     }
     data.close();
@@ -95,6 +91,6 @@ int main() {
             }
         }
     }
-        cout << "Your balance is: " << token->balance;
+        cout << "You've successfully logged in!";
     return 0;
 }
