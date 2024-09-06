@@ -1,4 +1,4 @@
-# SIMPLE LOG-IN SCRIPT
+# SIMPLE LOG-IN SCRIPT 
 
 ## Libraries used
 * iostream
@@ -14,3 +14,5 @@ This program was created as a part of a larger bank simulator project I am curre
 ## TODO
 * Encrypt user data
 * Work on the UI
+
+## THIS README FILE IS WIP
