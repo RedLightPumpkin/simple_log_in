@@ -12,11 +12,31 @@ struct USER{
 void add_user(vector<USER>& users){
     ofstream data("data.txt", ios::app);
     string username;
-    string password;
     cin.ignore();
-    cout << "Input your account's username: " << endl;
-    getline(cin,username);
-    data << username << endl;
+    string password;
+
+    bool validator = false;
+
+    while(!validator) {
+        bool unametaken = false;
+
+        cout << "Input your account's username: " << endl;
+        getline(cin, username);
+
+        for (auto &user: users) {
+            if (user.username == username) {
+                unametaken = true;
+                cout << "This username is already taken!" << endl;
+                break;
+            }
+        }
+
+            if(!unametaken){
+                validator = true;
+                data << username << endl;
+            }
+    }
+
     cout << "Input a secure password for your account " << endl;
     getline(cin,password);
     data << password << endl;
@@ -24,7 +44,9 @@ void add_user(vector<USER>& users){
     users.push_back({username, password});
 
     data.close();
+    cout << "Account created!" << endl;
 }
+
 
 USER* log_in(vector<USER>& users) {
     string username;
